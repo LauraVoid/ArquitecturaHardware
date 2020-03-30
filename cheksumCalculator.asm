@@ -9,20 +9,30 @@ IPHeader3 byte 45h, 00h, 00h, 28h, 17h, 0dah,40h, 00h, 80h, 06h, 5eh, 55h ,0c0h,
 
 ;Comprobar tambien con Header #2 y Header #3
 .code
-start:
+start:    
+
     mov esi,0
-    xor bx,bx
-    xor cx, cx
+    xor ebx,ebx
+    xor edx, edx    
+    mov ah,byte ptr [IPHeader3+esi] ;4500
+    shl ah, 4   ; quita uno a la izq (5000)
+    shr ah, 4   ;Quita uno a la derecha 500 
+    mov al,byte ptr [IPHeader3+esi] ;545
+    shr al, 4                       ;504
+    mul ah
+    mov dx, ax
+    xor eax, eax
 L11:mov ax,word ptr[IPHeader3+esi]; AX : AH AL
-    xchg  al,ah 
+    xchg al,ah 
     add esi,2
     not ax
     add bx,ax
     jnc L24
     add bx, 1
-L24:cmp esi,20
+L24:cmp esi,edx
     jne L11    
     not bx    
     xor eax, eax
     ret
     end start
+    
