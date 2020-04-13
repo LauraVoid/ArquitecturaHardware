@@ -10,6 +10,7 @@ CMAIN:
     xor eax, eax
     xor ebx, ebx
     xor ecx, ecx
+    
     lea esi,[BD_dato1]
     push esi ;0x402000
     call length 
@@ -21,7 +22,7 @@ CMAIN:
     push edx
     lea edi,[BD_dato1] ; dir Result    
     push edi
-    call addBD
+    call subtrac  
     xor   eax,eax
     ret  ;CMAIN
      
@@ -39,24 +40,46 @@ Lini:mov al, [edi + ecx]
      inc ecx
      jmp Lini
      
-fin: mov esp, ebp
+fin: dec ecx
+     mov esp, ebp
      pop ebp
      ret   
 ;------------------------------------------------
 
-addBD:
+subtrac:
     push    ebp
-    mov     ebp, esp 
+    mov     ebp, esp
+    xor eax, eax
+    mov esi, [ebp+16]
+    mov edx, [ebp+12]
+    mov edi, [ebp+8]
+    ;+4 dir call
        
 L1: mov al, [ esi+ ecx]
-    mov bl, [ edx + ecx]
+    mov bl, [ edx + ecx]   
     cmp al, '.'
     je L2
-    cmp ah, 0h
-    je L3
-    add al, 1h  
-    mov ah, 0h  
-L3: add al, bl
+    cmp al, bl
+    jae L3
+    add al, 0ah ;pedir prestado 10
+    dec ecx
+    mov bl, [ edx + ecx]  ;Agrego lo prestado a siguiente número
+    cmp bl, '.' ;verifica que la siguiente no sea puntico
+    jne L80  ;si es puntico no salta
+    dec ecx
+    mov bl, [ edx + ecx]
+L80:add bl ,1h
+    mov [edx +ecx], bl    
+    inc ecx
+    mov bl, [ edx + ecx]
+    cmp bl, '.' ;verifica que la siguiente no sea puntico
+    jne L79
+    inc ecx
+    mov bl, [ edx + ecx]  
+    
+
+L79:mov ah, 0h  
+L3: sub al, bl
     AAA
     add al, 30h
 L2: mov [edi +ecx], al
