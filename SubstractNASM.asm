@@ -61,24 +61,24 @@ L1: mov al, [ esi+ ecx]
     je L2
     cmp al, bl
     jae L3
-    add al, 0ah ;pedir prestado 10
+    add al, 0ah ;pedir prestado 10 al vecino
     dec ecx
-    mov bl, [ edx + ecx]  ;Agrego lo prestado a siguiente número
+    mov bl, [ edx + ecx]  ;Selecciono el siguiente número del sustraendo
     cmp bl, '.' ;verifica que la siguiente no sea puntico
     jne L80  ;si es puntico no salta
-    dec ecx
+    dec ecx ; decrementa al siguiente
     mov bl, [ edx + ecx]
-L80:add bl ,1h
-    mov [edx +ecx], bl    
-    inc ecx
+L80:add bl ,1h  ; Le agrego un 1 al número del sustraendo
+    mov [edx +ecx], bl    ; Lo pongo en la variable original
+    inc ecx         ;Regresa a la posición en la que estaba la resta normal
     mov bl, [ edx + ecx]
-    cmp bl, '.' ;verifica que la siguiente no sea puntico
+    cmp bl, '.' ;verifica que no sea puntico
     jne L79
     inc ecx
-    mov bl, [ edx + ecx]  
+    mov bl, [ edx + ecx]  ;Regresa a la posición en la que estaba la resta normal
     
 
-L79:mov ah, 0h  
+L79:mov ah, 0h  ;continua con la resta
 L3: sub al, bl
     AAA
     add al, 30h
