@@ -6,6 +6,7 @@ option casemap : none
 .code
 start:
     nop
+    xor eax,eax
     push 5EABCD78h
     push 7801EF78h
     mov ebp, esp
