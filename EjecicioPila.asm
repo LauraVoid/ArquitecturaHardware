@@ -7,10 +7,14 @@ option casemap : none
 start:
 ;{
         xor ecx,ecx
+        pop ecx
         lea     ecx, [esp+4]
+        pop ecx
         and     esp, -16    ;restar 4 a esp
+        
         ;sub esp, 4
         push    DWORD PTR [ecx-4]
+       
         
         push    ebp
         mov     ebp, esp
@@ -19,7 +23,7 @@ start:
 ;A=FuncInc(A);        
         mov     eax, DWORD PTR [A]
         sub     esp, 12
-        push    eax
+        push    eax       
         call    FuncInc_int ;19ff4c 
         add     esp, 16
         mov     DWORD PTR [A], eax
@@ -35,6 +39,7 @@ start:
         
 FuncInc_int:   ;int FuncInc(int var){
         push    ebp
+      
         mov     ebp, esp
         mov     eax, DWORD PTR [ebp+8]
         add     eax, 2      ;return var+2;
