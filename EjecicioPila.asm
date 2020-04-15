@@ -6,12 +6,9 @@ option casemap : none
 .code
 start:
 ;{
-        xor ecx,ecx
-        pop ecx
-        lea     ecx, [esp+4]
-        pop ecx
-        and     esp, -16    ;restar 4 a esp
         
+        lea     ecx, [esp+4]        
+        and     esp, -16    ;restar 4 a esp        
         ;sub esp, 4
         push    DWORD PTR [ecx-4]
        
