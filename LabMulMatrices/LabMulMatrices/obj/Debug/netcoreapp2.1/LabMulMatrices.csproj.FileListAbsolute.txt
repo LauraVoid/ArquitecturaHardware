@@ -1,0 +1,11 @@
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\bin\Debug\netcoreapp2.1\LabMulMatrices.deps.json
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\bin\Debug\netcoreapp2.1\LabMulMatrices.runtimeconfig.json
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\bin\Debug\netcoreapp2.1\LabMulMatrices.runtimeconfig.dev.json
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\bin\Debug\netcoreapp2.1\LabMulMatrices.dll
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\bin\Debug\netcoreapp2.1\LabMulMatrices.pdb
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\obj\Debug\netcoreapp2.1\LabMulMatrices.csprojAssemblyReference.cache
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\obj\Debug\netcoreapp2.1\LabMulMatrices.csproj.CoreCompileInputs.cache
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\obj\Debug\netcoreapp2.1\LabMulMatrices.AssemblyInfoInputs.cache
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\obj\Debug\netcoreapp2.1\LabMulMatrices.AssemblyInfo.cs
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\obj\Debug\netcoreapp2.1\LabMulMatrices.dll
+C:\Users\Laura\source\repos\LabMulMatrices\LabMulMatrices\obj\Debug\netcoreapp2.1\LabMulMatrices.pdb
